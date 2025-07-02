@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Inicio de Sesión - Juego de Cartas</title>
+  <title>Juego de Cartas</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <div class="container">
     <h1>Juego de Cartas</h1>
 
+    <!-- Pantalla de login -->
     <div id="form-login">
       <h2>Iniciar Sesión</h2>
       <input type="text" id="login-username" placeholder="Usuario" />
@@ -18,12 +19,19 @@
       <p>¿No tienes cuenta? <a href="#" onclick="mostrarRegistro()">Regístrate</a></p>
     </div>
 
+    <!-- Pantalla de registro -->
     <div id="form-register" style="display:none">
       <h2>Registrarse</h2>
       <input type="text" id="register-username" placeholder="Nuevo usuario" />
       <input type="password" id="register-password" placeholder="Nueva contraseña" />
       <button onclick="registrarse()">Crear cuenta</button>
       <p>¿Ya tienes cuenta? <a href="#" onclick="mostrarLogin()">Inicia sesión</a></p>
+    </div>
+
+    <!-- Pantalla de gracias -->
+    <div id="thank-you" style="display:none">
+      <h2>Gracias por registrarte</h2>
+      <p>¡Ahora puedes empezar a jugar!</p>
     </div>
   </div>
 
