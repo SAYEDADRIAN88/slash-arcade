@@ -45,3 +45,11 @@ a {
   color: #00bfff;
   cursor: pointer;
 }
+
+#thank-you {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
