@@ -1,44 +1,56 @@
-// Simulación de base de datos local con localStorage
-function registrarse() {
-  const user = document.getElementById('register-username').value;
-  const pass = document.getElementById('register-password').value;
+// script.js
 
-  if (user && pass) {
-    if (localStorage.getItem(user)) {
-      alert("Este usuario ya existe.");
-    } else {
-      localStorage.setItem(user, pass);
-      alert("¡Cuenta creada con éxito!");
-      mostrarLogin();
-    }
-  } else {
-    alert("Por favor completa todos los campos.");
+// Referencias a los formularios
+const formLogin = document.getElementById('form-login');
+const formRegister = document.getElementById('form-register');
+const formThankYou = document.getElementById('thank-you');
+
+// Función para registrar un usuario
+async function registrarse() {
+  const user = document.getElementById("register-username").value;
+  const pass = document.getElementById("register-password").value;
+
+  try {
+    // Registra el usuario (aquí se simula, en tu caso con Firebase puedes registrar en la base de datos)
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulación de registro con delay
+    alert("¡Cuenta creada con éxito!");
+    
+    // Mostrar pantalla de "Gracias por registrarte"
+    formRegister.style.display = 'none';
+    formThankYou.style.display = 'block';
+  } catch (error) {
+    alert("Error al crear la cuenta: " + error.message);
   }
 }
 
-function login() {
-  const user = document.getElementById('login-username').value;
-  const pass = document.getElementById('login-password').value;
+// Función para hacer login
+async function login() {
+  const user = document.getElementById("login-username").value;
+  const pass = document.getElementById("login-password").value;
 
-  const storedPass = localStorage.getItem(user);
+  try {
+    // Inicia sesión con el usuario y la contraseña (simulado aquí)
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulación de login con delay
+    alert("¡Bienvenido!");
 
-  if (storedPass === pass) {
-    alert("¡Bienvenido, " + user + "!");
-    // Aquí iría el paso al menú o juego
-    // window.location.href = "juego.html";
-  } else {
-    alert("Usuario o contraseña incorrectos.");
+    // Mostrar pantalla de "Gracias por registrarte"
+    formLogin.style.display = 'none';
+    formThankYou.style.display = 'block';
+  } catch (error) {
+    alert("Error al iniciar sesión: " + error.message);
   }
 }
 
-function mostrarRegistro() {
-  document.getElementById('form-login').style.display = 'none';
-  document.getElementById('form-register').style.display = 'block';
-}
-
+// Función para mostrar el formulario de login
 function mostrarLogin() {
-  document.getElementById('form-register').style.display = 'none';
-  document.getElementById('form-login').style.display = 'block';
+  formRegister.style.display = 'none';
+  formLogin.style.display = 'block';
+}
+
+// Función para mostrar el formulario de registro
+function mostrarRegistro() {
+  formLogin.style.display = 'none';
+  formRegister.style.display = 'block';
 }
 
 // script.js
